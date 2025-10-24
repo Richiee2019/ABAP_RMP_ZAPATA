@@ -4,11 +4,10 @@
 define root view entity ZRDT_INCT_RC367
   as select from zdt_inct_rmpc367
   
-//  association [0..*] to ZEDT_INCT_H_RC367 as _historial on _historial.IncUuid     = $projection.IncUuid
   composition [0..*] of ZEDT_INCT_H_RC367 as _historial 
   association [0..1] to ZEDT_STATUS_RC367 as _ststus    on _ststus.StatusCode     = $projection.Status
   association [0..1] to ZEDT_PRIOTY_RC367 as _priority  on _priority.PriorityCode = $projection.Priority
-  //composition of target_data_source0_name as _association_name
+
 {
   key inc_uuid              as IncUuid,
       incident_id           as IncidentId,

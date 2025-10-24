@@ -1,0 +1,102 @@
+managed implementation in class zbp_rdt_inct_rc367 unique;
+strict ( 2 );
+
+with draft;
+
+define behavior for ZRDT_INCT_RC367 alias Incidente
+persistent table zdt_inct_rmpc367
+draft table zdt_inct_rc367_d
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( global, instance )
+
+
+{
+//  create ( authorization : global );
+  create;
+  update;
+  delete;
+  field ( numbering : managed, readonly ) IncUuid;
+
+  field ( readonly )
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( mandatory )
+  IncidentId,
+  Title,
+  Description,
+  Status,
+  Priority,
+  CreationDate;
+
+  action ( features : instance, authorization : update ) CambioStatus
+    parameter ZAE_INCIDENTE result [1] $self;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+
+  draft determine action Prepare { }
+
+  mapping for zdt_inct_rmpc367
+    {
+      IncUuid            = inc_uuid;
+      incidentid         = incident_id;
+      title              = title;
+      description        = description;
+      status             = status;
+      priority           = priority;
+      creationdate       = creation_date;
+      changeddate        = changed_date;
+      localcreatedby     = local_created_by;
+      localcreatedat     = local_created_at;
+      locallastchangedby = local_last_changed_by;
+      locallastchangedat = local_last_changed_at;
+      lastchangedat      = last_changed_at;
+    }
+
+  association _historial { create; with draft; }
+
+}
+
+define behavior for ZEDT_INCT_H_RC367 alias Historial
+persistent table zdt_inct_h_rc367
+draft table zdt_int_h_rc367d
+lock dependent by _incidente
+authorization dependent by _incidente
+
+{
+  update;
+  delete;
+  field ( numbering : managed, readonly ) HisUuid;
+
+  field ( readonly )
+  incuuid,
+  HisId,
+  PreviousStatus,
+  NewStatus,
+  Text;
+
+  mapping for zdt_inct_h_rc367
+    {
+      hisuuid            = his_uuid;
+      incuuid            = inc_uuid;
+      hisid              = his_id;
+      previousstatus     = previous_status;
+      newstatus          = new_status;
+      text               = text;
+      localcreatedby     = local_created_by;
+      localcreatedat     = local_created_at;
+      locallastchangedby = local_last_changed_by;
+      locallastchangedat = local_last_changed_at;
+      lastchangedat      = last_changed_at;
+    }
+
+  association _incidente { with draft; }
+}

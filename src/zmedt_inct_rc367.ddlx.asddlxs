@@ -1,10 +1,10 @@
-@Metadata.layer: #CORE
+@Metadata.layer: #CUSTOMER
 @UI: { headerInfo : {
                       typeName: 'Incidente',
                       typeNamePlural: 'Incidentes',
                       title : { type: #STANDARD,
-                                value: 'IncUuid'  } },
-                      presentationVariant: [{ sortOrder: [{ by: 'IncUuid',
+                                value: 'IncidentId'  } },
+                      presentationVariant: [{ sortOrder: [{ by: 'IncidentId',
                                               direction: #DESC }],
                       visualizations: [{ type: #AS_LINEITEM }] }]
                                  }
@@ -13,60 +13,74 @@ annotate entity ZCDT_INCT_RC367 with
   @UI.facet: [{ id: 'DatoMaestroIncidente',
                 purpose: #STANDARD,
                 type: #IDENTIFICATION_REFERENCE,
-                label: 'Incidente',
+                label: 'Incidente Master Data',
                 position: 10 }]
-                
+
   @UI.hidden: true
   IncUuid;
-  @UI.lineItem: [{ position: 1,
-               importance: #HIGH,
-               label: 'Incidente'  }]
+
+  @UI: { lineItem: [{ position: 10,
+                      importance: #HIGH,
+                      label: 'Incidente ID ' },
+                      { type: #FOR_ACTION,
+                        dataAction: 'CambioStatus',
+                        label: 'Cambio Estatus',
+                        position: 10 }
+                    ]}
   @UI.selectionField: [{ position: 10 }]
-  @UI.identification: [{ position: 10 }]
-  IncidentId;
-  @UI.lineItem: [{ position: 10,
-                   importance: #MEDIUM,
-                   label: 'Titulo'  }]
-  @UI.identification: [{ position: 20 }]
-  Title;
-  @UI.lineItem: [{ position: 20,
-               importance: #MEDIUM,
-               label: 'Descrip.Incidente'  }]
-  @UI.selectionField: [{ position: 20 }]
-  @UI.identification: [{ position: 30 }]
-  Description;
-  @UI.lineItem: [{ position: 30,
-               importance: #MEDIUM,
-               label: 'Estatus Incidente'  },
-               { type: #FOR_ACTION,
-                   dataAction: 'CambioStatus',
-                   label: 'Cambio Estatus',
-                   position: 10 }
-                 ]
-  @UI.selectionField: [{ position: 30 }]
-  @UI.identification: [{ position: 40 },
+  @UI.identification: [{ position: 10 },
                        { type: #FOR_ACTION,
                          dataAction: 'CambioStatus',
                          label: 'Cambio Estatus',
-                         position: 10 }
-                         ]
-  Status;
+                         position: 10 }]
+  IncidentId;
+
+
+  @UI.lineItem: [{ position: 20,
+                   importance: #MEDIUM,
+                   label: 'Titulo'  }]
+//  @UI.selectionField: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+
+  Title;
+
+
+  @UI.lineItem: [{ position: 30,
+               importance: #MEDIUM,
+               label: 'Descrip.Incidente'  }]
+  @UI.selectionField: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+
+  Description;
+
   @UI.lineItem: [{ position: 40,
                importance: #MEDIUM,
-               label: 'Prioridad Incidente'  }]
+               label: 'Estatus Incidente'  }]
   @UI.selectionField: [{ position: 40 }]
-  @UI.identification: [{ position: 50 }]
-  Priority;
+  @UI.identification: [{ position: 40 }]
+
+  Status;
+
   @UI.lineItem: [{ position: 50,
                importance: #MEDIUM,
-               label: 'Fec.Creación'  }]
+               label: 'Prioridad Incidente'  }]
   @UI.selectionField: [{ position: 50 }]
-  @UI.identification: [{ position: 60 }]
-  CreationDate;
+  @UI.identification: [{ position: 50 }]
+
+  Priority;
+
   @UI.lineItem: [{ position: 60,
-               importance: #MEDIUM,
-               label: 'Fec.Modificación'  }]
+               importance: #LOW,
+               label: 'Fec.Creación'  }]
   @UI.selectionField: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+
+  CreationDate;
+
+  @UI.lineItem: [{ position: 70,
+               importance: #LOW,
+               label: 'Fec.Modificación'  }]
+  @UI.selectionField: [{ position: 70 }]
   @UI.identification: [{ position: 70 }]
   ChangedDate;
 
