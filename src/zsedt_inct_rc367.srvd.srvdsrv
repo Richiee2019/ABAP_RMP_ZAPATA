@@ -1,4 +1,0 @@
-@EndUserText.label: 'Service Definition: Incidente'
-define service ZSEDT_INCT_RC367 {
-  expose ZCDT_INCT_RC367 as Incidente;
-}

@@ -11,10 +11,9 @@ as projection on ZEDT_INCT_H_RC367
     PreviousStatus,
     NewStatus,
     Text,
-    LocalCreatedBy,
-    LocalCreatedAt,
-    LocalLastChangedBy,
+    @Semantics.systemDateTime.localInstanceLastChangedAt: true
     LocalLastChangedAt,
+    @Semantics.systemDateTime.lastChangedAt: true
     LastChangedAt,
     /* Associations */
     _incidente: redirected to parent ZIDT_INCT_RC367 

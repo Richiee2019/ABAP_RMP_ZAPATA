@@ -39,12 +39,6 @@ define root view entity ZCDT_INCT_RC367
       _priority.PriorityDescription as PriorityDescrip,
       CreationDate,
       ChangedDate,
-      @Semantics.user.createdBy: true
-      LocalCreatedBy,
-      @Semantics.systemDateTime.createdAt: true
-      LocalCreatedAt,
-      @Semantics.user.localInstanceLastChangedBy: true
-      LocalLastChangedBy,
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       LocalLastChangedAt,
       @Semantics.systemDateTime.lastChangedAt: true

@@ -1,0 +1,28 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZCDT_INCT_RC367 alias Incidente
+{
+  use create;
+  use update;
+  use delete;
+
+  use action CambioStatus;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _historial { create; with draft; }
+}
+
+define behavior for ZCDT_INCT_H_RC367 alias Historial
+{
+  use update;
+  use delete;
+
+  use association _incidente { with draft; }
+}

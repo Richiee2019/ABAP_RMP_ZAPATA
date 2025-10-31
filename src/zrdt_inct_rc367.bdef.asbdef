@@ -13,7 +13,6 @@ authorization master ( global, instance )
 
 
 {
-//  create ( authorization : global );
   create;
   update;
   delete;
@@ -42,7 +41,7 @@ authorization master ( global, instance )
   draft action Activate optimized;
   draft action Discard;
 
-  draft determine action Prepare { }
+  draft determine action Prepare;
 
   mapping for zdt_inct_rmpc367
     {
@@ -70,6 +69,7 @@ persistent table zdt_inct_h_rc367
 draft table zdt_int_h_rc367d
 lock dependent by _incidente
 authorization dependent by _incidente
+etag master LocalLastChangedAt
 
 {
   update;

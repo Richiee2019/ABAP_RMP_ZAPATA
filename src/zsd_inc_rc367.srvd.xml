@@ -3,12 +3,12 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <SRVD>
-    <NAME>ZSEDT_INCT_RC367</NAME>
+    <NAME>ZSD_INC_RC367</NAME>
     <TYPE>SRVD/SRV</TYPE>
-    <DESCRIPTION>Service Definition: Incidente</DESCRIPTION>
+    <DESCRIPTION>Serv.Definition Incidente</DESCRIPTION>
     <LANGUAGE>EN</LANGUAGE>
     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
-    <SOURCE_URI>./zsedt_inct_rc367/source/main</SOURCE_URI>
+    <SOURCE_URI>./zsd_inc_rc367/source/main</SOURCE_URI>
     <SOURCE_TYPE>ABAP_SOURCE</SOURCE_TYPE>
     <SOURCE_ORIGIN_DESCRIPTION>ABAP Development Tools</SOURCE_ORIGIN_DESCRIPTION>
     <SRVD_SOURCE_TYPE>S</SRVD_SOURCE_TYPE>

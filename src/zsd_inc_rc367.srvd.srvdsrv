@@ -1,0 +1,4 @@
+@EndUserText.label: 'Serv.Definition Incidente'
+define service ZSD_INC_RC367 {
+  expose ZCDT_INCT_RC367 as Incidente;
+}

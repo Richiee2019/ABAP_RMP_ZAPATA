@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+@UI.createHidden: true
+@UI: { headerInfo : {
+                      typeName: 'Historial',
+                      typeNamePlural: 'Historial',
+                      title : { type: #STANDARD,
+                                value: 'HisId'  } },
+                      presentationVariant: [{
+                      visualizations: [{ type: #AS_LINEITEM }] }]
+                                 }
+annotate entity ZCDT_INCT_H_RC367 with
+{
+  @UI.facet: [{
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Historial Incidente',
+                position: 10 }]
+
+  @UI.hidden: true
+  HisUuid;
+  @UI.lineItem: [{ position: 10,
+            importance: #HIGH,
+            label: 'ID Incidente'  }]
+  @UI.identification: [{ position: 10 }]
+  IncUuid;
+  @UI.lineItem: [{ position: 20,
+        importance: #HIGH,
+        label: 'ID Historial'  }]
+  HisId;
+  @UI.lineItem: [{ position: 30,
+        importance: #HIGH,
+        label: 'Estatus Anterior'  }]
+  PreviousStatus;
+  @UI.lineItem: [{ position: 40,
+        importance: #HIGH,
+        label: 'Estatus Nuevo'  }]
+  NewStatus;
+  @UI.lineItem: [{ position: 50,
+    importance: #HIGH,
+    label: 'Observación'  }]
+  Text;
+
+}
